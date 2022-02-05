@@ -20,21 +20,22 @@ L.marker([-6.88681, 107.61535]).addTo(map);
 $(document).ready(function () {
     $.getJSON("/coordinate/json", (data) => {
         $.each(data, (index) => {
+            var content = `
+                        <div class="card">
+                            <h1 class="card-title">${data[index].nama_gedung}</h1>
+                            <div class="card-line"></div>
+                        </div>
+                        `;
+
+            var popup = L.popup()
+                .setLatLng([data[index].latitude, data[index].longitude])
+                .setContent(content)
+                .openOn(map);
+
             L.marker([
                 parseFloat(data[index].latitude),
                 parseFloat(data[index].longitude),
-            ])
-                .addTo(map)
-                .bindPopup(
-                    `
-                    <div class="card">
-                        <h1 class="card-title">${data[index].nama_gedung}</h1>
-                    </div>
-                    
-                    
-                    `
-                )
-                .openPopup();
+            ]).addTo(map).bindPopup(popup);
         });
     });
 });

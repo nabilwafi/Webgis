@@ -15,5 +15,8 @@
  <script src="https://unpkg.com/esri-leaflet@3.0.0/dist/esri-leaflet.js"></script>
  <script src="https://unpkg.com/esri-leaflet-vector@3.0.0/dist/esri-leaflet-vector.js"></script>
 
+ <!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 {{-- CSS --}}
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">

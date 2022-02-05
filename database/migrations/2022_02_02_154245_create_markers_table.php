@@ -16,8 +16,8 @@ class CreateMarkersTable extends Migration
         Schema::create('markers', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('nama_gedung');
-            $table->string('alamat')->nullable();
-            $table->string('deskripsi')->nullable();
+            $table->text('alamat')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->string('foto')->nullable();
             $table->string('latitude');
             $table->string('longitude');

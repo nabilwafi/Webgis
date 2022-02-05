@@ -13,11 +13,46 @@ body {
     z-index: 1;
 }
 
+/* Popup */
 .card {
-    padding: 1rem;
+    padding: 1rem .5rem;
 }
 
 .card-title {
-    font-size: .5rem;
+    font-size: 1rem;
     text-align: center;
 }
+
+.card-line {
+    width: 100%;
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 10px 0;
+    border-radius: 20px;
+}
+/* End of Popup */
+
+/* Form */
+.form-wrap {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 50%;
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.form-textarea {
+    height: 5rem;
+}
+/* End of Form */
+
+/* Table */
+.foto_gedung {
+    width: 30px;
+    height: 30px;
+}
+/* End of Table */

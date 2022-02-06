@@ -71,6 +71,60 @@ class MarkerController extends Controller
         return view('contents.edit', compact('marker'));
     }
 
+    public function update(Request $request, $id) {
+
+        $validated = $request->validate([
+            'nama_gedung' => 'required',
+            'alamat' => 'required',
+            'deskripsi' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+        ]);
+
+        $nama_gedung = $request->nama_gedung;
+        $alamat = $request->alamat;
+        $deskripsi = $request->deskripsi;
+        $latitude = $request->latitude;
+        $longitude = $request->longitude;
+
+        $old_image = $request->old_image;
+        $image = $request->foto;
+        if($image) {
+            $image_input = uniqid().'.'.$image->getClientOriginalExtension();
+            Image::make($image)->resize(500, 300)->save('image/posting/'.$image_input);
+            
+            unlink($old_image);
+            $DBmarker = Marker::find($id);
+            $DBmarker->nama_gedung = $nama_gedung;
+            $DBmarker->alamat = $alamat;
+            $DBmarker->deskripsi = $deskripsi;
+            $DBmarker->foto = 'image/posting/'.$image_input;
+            $DBmarker->latitude = $latitude;
+            $DBmarker->longitude = $longitude;
+            $DBmarker->update();
+            
+            return redirect('/dashboard');
+        }
+
+        $DBmarker = Marker::find($id);
+        $DBmarker->nama_gedung = $nama_gedung;
+        $DBmarker->alamat = $alamat;
+        $DBmarker->deskripsi = $deskripsi;
+        $DBmarker->foto = $old_image;
+        $DBmarker->latitude = $latitude;
+        $DBmarker->longitude = $longitude;
+        $DBmarker->update();
+        
+        return redirect('/dashboard');
+    }
+
+    public function delete($id) {
+        $DBMarker = Marker::find($id);
+        $DBMarker->delete();
+
+        return redirect('/dashboard');
+    }
+
     public function marker_json()
     {
         $results = $this->Marker->allData();

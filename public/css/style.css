@@ -48,6 +48,11 @@ body {
 .form-textarea {
     height: 5rem;
 }
+
+.foto-marker {
+    width: 280px;
+    height: 250px;
+}
 /* End of Form */
 
 /* Table */
@@ -56,3 +61,10 @@ body {
     height: 30px;
 }
 /* End of Table */
+
+.btn-dashboard {
+    position: absolute;
+    z-index: 3;
+    top: 2rem;
+    right: 2rem;
+}

@@ -3,6 +3,9 @@
 
 <div class="container my-5">
   <div>
+    <a href="/marker/create" class="btn btn-primary">Tambah Data</a>
+  </div>
+  <div>
     <table class="table">
       <thead>
         <tr>
@@ -41,7 +44,7 @@
         @endphp
         @empty
         <tr>
-          <td colspan="7">No record found</td>
+          <td colspan="8">No record found</td>
         </tr>
     
         @endforelse

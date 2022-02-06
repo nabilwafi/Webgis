@@ -15,7 +15,7 @@ L.tileLayer(
     }
 ).addTo(map);
 
-L.marker([-6.88681, 107.61535]).addTo(map);
+// L.marker([-6.88681, 107.61535]).addTo(map);
 
 $(document).ready(function () {
     $.getJSON("/coordinate/json", (data) => {
@@ -24,47 +24,47 @@ $(document).ready(function () {
                         <div class="card">
                             <h1 class="card-title">${data[index].nama_gedung}</h1>
                             <div class="card-line"></div>
+                            <diV>
+                            <img class="foto-marker" src="${data[index].foto}" alt="..." />
+                            </div>
+                            <div class="card-line"></div>
+                            <diV>${data[index].alamat}</div>
+                            <div class="card-line"></div>
+                            <diV>${data[index].deskripsi}</div>
                         </div>
                         `;
 
             var popup = L.popup()
                 .setLatLng([data[index].latitude, data[index].longitude])
-                .setContent(content)
-                .openOn(map);
+                .setContent(content);
 
             L.marker([
                 parseFloat(data[index].latitude),
                 parseFloat(data[index].longitude),
-            ]).addTo(map).bindPopup(popup);
+            ])
+                .addTo(map)
+                .bindPopup(popup);
         });
     });
+    
 });
 
-// $.getJSON(mapJSON, (json) => {
-//     geoLayer = L.geoJson(json, {
-//         style: function(feature) {
-//             return {
-//                 fillOpacity: 0.5,
-//                 weight: 5,
-//                 opacity: 1,
-//                 color: '#008cff',
-//             }
-//         },
 
-//         onEachFeature: function(feature, layer) {
+$.getJSON("/json/kota_Bandung.geojson", function(json) {
+    geoLayer = L.geoJson(json, {
+        style: function(feature) {
+            return {
+                fillOpacity: 0.5,
+                weight: 2,
+                opacity: 1,
+            }
+        },
 
-//             let iconLabel = L.divIcon({
-//                 className: 'label-bidang',
-//                 html: `<b>${feature.properties.nama}</b>`,
-//                 iconSize: [100, 20]
-//             })
-
-//             // L.maker(layer.getBounds().getCenter(),{icon:iconLabel}).addTo(map);
-
-//             layer.on('click', (e) => {
-//                 alert(feature.properties.nama);
-//             });
-//         }
-
-//     });
-// });
+        onEachFeature: function(feature, layer) {
+            layer.addTo(map);
+            layer.addEventListener('mouseover', function() {
+                layer.bindPopup(feature.properties.Name);
+            });
+        }
+    });
+});

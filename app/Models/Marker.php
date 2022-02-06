@@ -17,7 +17,7 @@ class Marker extends Model
 
     public function allData() {
         $results = DB::table('markers')
-                    ->select('nama_gedung','latitude', 'longitude')
+                    ->select('nama_gedung','alamat', 'deskripsi', 'foto' ,'latitude', 'longitude')
                     ->get();
         
         return $results;

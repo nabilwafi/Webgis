@@ -35,11 +35,12 @@
 
     <div class="mb-3">
       <label for="longitude">Longitude</label>
-      <input type="text" name="longitude" id="longitude" class="form-control" value="{{ $marker->latitude }}">
+      <input type="text" name="longitude" id="longitude" class="form-control" value="{{ $marker->longitude }}">
     </div>
 
     <div class="mb-3">
       <label for="file">Upload Image</label>
+      <input type="hidden" name="old_image" value="{{ $marker->foto }}" />
       <input type="file" name="foto" id="foto" class="form-control">
     </div>
     

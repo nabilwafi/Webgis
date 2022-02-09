@@ -1,5 +1,5 @@
-@extends('../layout')
-@section('content')
+@extends('layout')
+@section('content.main')
 
 <a href="/dashboard" class="btn btn-primary btn-dashboard">Dashboard</a>
 <div class="map-wrap">
@@ -10,6 +10,5 @@
   </form>
   <div id="map"></div>
 </div>
-
 
 @endsection

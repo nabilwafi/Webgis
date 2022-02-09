@@ -16,8 +16,15 @@ class MarkerController extends Controller
     }
 
     public function index() 
+    {   
+        $data_gedung_id = null;
+        return view('contents.home', compact('data_gedung_id'));
+    }
+
+    public function index2($id) 
     {
-        return view('contents.home');
+        $data_gedung_id = Marker::find($id);
+        return view('contents.home', compact('data_gedung_id'));
     }
 
     public function admin() {
@@ -117,6 +124,17 @@ class MarkerController extends Controller
         
         return redirect('/dashboard');
     }
+
+    public function find(Request $request) {
+        $data_gedung = Marker::where('nama_gedung', $request->nama_gedung)->first();
+        return redirect()->route('home', $data_gedung);
+    }
+
+    public function gedung($id) {
+        $data_gedung = Marker::find($id);
+        return view('contents.home2', compact('data_gedung'));
+    }
+
 
     public function delete($id) {
         $DBMarker = Marker::find($id);

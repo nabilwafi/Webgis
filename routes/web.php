@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MarkerController::class, 'index']);
+Route::get('/home/{id}', [MarkerController::class, 'index2'])->name('home');
 Route::get('/coordinate/json', [MarkerController::class, 'marker_json']);
 Route::get('/coordinate/bidang/{id}', [MarkerController::class, 'lokasi']);
 
@@ -26,3 +27,5 @@ Route::post('/marker/store', [MarkerController::class, 'store'])->name('marker.c
 Route::get('/marker/edit/{id}', [MarkerController::class, 'edit'])->name('marker.edit');
 Route::post('/marker/update/{id}', [MarkerController::class, 'update'])->name('marker.update');
 Route::get('/marker/delete/{id}', [MarkerController::class, 'delete'])->name('marker.delete');
+Route::post('/marker/find', [MarkerController::class, 'find'])->name('marker.find');
+Route::get('/marker/look/{id}', [MarkerController::class, 'gedung'])->name('marker.look');

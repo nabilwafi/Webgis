@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <div class="container form-wrap">
-  <form action="{{ Route('marker.create') }}" method="post" enctype="multipart/form-data">
+  <form action="{{ Route('titik.create') }}" method="post" enctype="multipart/form-data">
     @csrf
 
     <div class="form-title">
@@ -14,22 +14,22 @@
     </div>
 
     <div class="mb-3">
-      <label for="nama_gedung">Nama Gedung</label>
-      <input type="text" name="nama_gedung" id="nama_gedung" class="form-control">
+      <label for="nama_lahan">Nama Lahan</label>
+      <input type="text" name="nama_lahan" id="nama_lahan" class="form-control">
     </div>
 
     <div class="mb-3">
-      <label for="alamat">Alamat</label>
-      <textarea name="alamat" id="alamat" class="form-control form-textarea"></textarea>
+      <label for="alamat_lahan">Alamat Lahan</label>
+      <textarea name="alamat_lahan" id="alamat_lahan" class="form-control form-textarea"></textarea>
     </div>
 
     <div class="mb-3">
-      <label for="deskripsi">Deskripsi</label>
-      <textarea name="deskripsi" id="deskripsi" class="form-control form-textarea"></textarea>
+      <label for="luas_lahan">Luas Lahan</label>
+      <textarea name="luas_lahan" id="luas_lahan" class="form-control form-textarea"></textarea>
     </div>
 
     <div class="mb-3">
-      <label for="atitude">Latitude</label>
+      <label for="latitude">Latitude</label>
       <input type="text" name="latitude" id="latitude" class="form-control">
     </div>
 
@@ -39,8 +39,8 @@
     </div>
 
     <div class="mb-3">
-      <label for="file">Upload Image</label>
-      <input type="file" name="foto" id="foto" class="form-control">
+      <label for="foto_lahan">Upload Image</label>
+      <input type="file" name="foto_lahan" id="foto_lahan" class="form-control">
     </div>
     
     <div class="mt-5">

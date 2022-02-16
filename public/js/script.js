@@ -2,7 +2,7 @@ const apiKey =
     "pk.eyJ1IjoibmFiaWx3YWZpIiwiYSI6ImNrejVvNGR3NjBjNTAycnFuZDYyNDRycTIifQ.64NBmUKA4bxoC933pq2X7w";
 const baseMap = "ArcGIS:Streets";
 
-let map = L.map("map").setView([latitude, longitude], view);
+let map = L.map("map").setView(["-6.895412", "107.5651106"], 15);
 
 L.tileLayer(
     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
@@ -57,7 +57,7 @@ $(document).ready(function () {
 });
 
 
-$.getJSON("/json/kota_Bandung.geojson", function(json) {
+$.getJSON("/json/administrasi_kota_cimahi.geojson", function(json) {
     geoLayer = L.geoJson(json, {
         style: function(feature) {
             return {

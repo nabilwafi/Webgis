@@ -9,21 +9,6 @@
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script>
-  let mapJSON = '{{ URL::asset('/json/map.geojson') }}';
-  
-  let seleksi = "{{ $data_gedung_id }}";
-  
-  @php
-  $data = $data_gedung_id;
-  @endphp
-  @if(is_null($data))
-    let latitude = "-6.88681";
-    let longitude = "107.61535";
-    let view = 12;
-  @else
-    latitude = "{{$data->latitude}}";
-    longitude = "{{$data->longitude}}";
-    view = 20;
-  @endif
+  let mapJSON = '{{ URL::asset('/json/administrasi_kota_cimahi.geojson') }}';
 </script>
 <script src="{{ asset('js/script.js') }}"></script>

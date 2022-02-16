@@ -16,8 +16,8 @@ class Marker extends Model
     ];
 
     public function allData() {
-        $results = DB::table('markers')
-                    ->select('nama_gedung','alamat', 'deskripsi', 'foto' ,'latitude', 'longitude')
+        $results = DB::table('tb_lahan')
+                    ->select('nama_lahan','alamat_lahan', 'foto_lahan', 'luas_lahan' ,'latitude', 'longitude')
                     ->get();
         
         return $results;
@@ -25,9 +25,9 @@ class Marker extends Model
 
     public function getLokasi($id= '')
     {
-        $result = DB::table('markers')
-                    ->select('nama_gedung', 'alamat', 'deskripsi', 'foto')
-                    ->where('id', $id)
+        $result = DB::table('tb_lahan')
+                    ->select('nama_lahan', 'alamat_lahan', 'foto_lahan', 'luas_lahan')
+                    ->where('id_lahan', $id)
                     ->get();
 
         return $result;

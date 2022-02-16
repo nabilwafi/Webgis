@@ -10,10 +10,10 @@
       <thead>
         <tr>
           <th scope="col">No</th>
-          <th scope="col">Nama Gedung</th>
-          <th scope="col">Alamat</th>
-          <th scope="col">Deskripsi</th>
-          <th scope="col">Foto</th>
+          <th scope="col">Nama Lahan</th>
+          <th scope="col">Alamat Lahan</th>
+          <th scope="col">Luas Lahan</th>
+          <th scope="col">Foto Lahan</th>
           <th scope="col">Latitude</th>
           <th scope="col">Longitude</th>
           <th scope="col">Action</th>
@@ -23,20 +23,20 @@
         @php
           $no = 1;
         @endphp
-        @forelse($markers as $marker)
+        @forelse($lahans as $lahan)
         <tr>
           <th scope="row">{{ $no }}</th>
-          <td>{{ $marker->nama_gedung }}</td>
-          <td>{{ $marker->alamat }}</td>
-          <td>{{ $marker->deskripsi }}</td>
+          <td>{{ $lahan->nama_lahan }}</td>
+          <td>{{ $lahan->alamat_lahan }}</td>
+          <td>{{ $lahan->luas_lahan }}</td>
           <td>
-            <img class="foto_gedung" src="{{ asset($marker->foto) }}" alt="">
+            <img class="foto_gedung" src="{{ asset($lahan->foto_lahan) }}" alt="">
           </td>
-          <td>{{ $marker->latitude }}</td>
-          <td>{{ $marker->longitude }}</td>
+          <td>{{ $lahan->latitude }}</td>
+          <td>{{ $lahan->longitude }}</td>
           <td>
-            <a class="btn btn-primary mr-3" href="{{ route('marker.edit', $marker->id) }}">Edit</a>
-            <a class="btn btn-danger" href="{{ route('marker.delete', $marker->id) }}">Delete</a>
+            <a class="btn btn-primary mr-3" href="{{ route('titik.edit', $lahan->id_lahan) }}">Edit</a>
+            <a class="btn btn-danger" href="{{ route('titik.delete', $lahan->id_lahan) }}">Delete</a>
           </td>
         </tr>
         @php
